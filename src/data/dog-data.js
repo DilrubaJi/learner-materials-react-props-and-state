@@ -1,4 +1,4 @@
-const dogs = [
+const dogsdata = [
     {
         "name": "Floofus",
         "species": "Puppy",
@@ -25,4 +25,4 @@ const dogs = [
     },
 ];
 
-
+export default dogsdata;
