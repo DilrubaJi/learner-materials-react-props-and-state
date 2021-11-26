@@ -1,4 +1,4 @@
-function CatCard ({ name, photo, alt, species, favFoods, birthYear }) {
+function Card ({ name, photo, alt, species, favFoods, birthYear }) {
     return (
         <div className="card">
             <h3 className="card__text card__header">{name}</h3>
@@ -10,4 +10,4 @@ function CatCard ({ name, photo, alt, species, favFoods, birthYear }) {
     )
 }
 
-export default CatCard;
+export default Card;

@@ -3,9 +3,8 @@ import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { useState } from 'react'
-import CatCard from './components/CatCard'
+import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid';
-import DogCard from './components/DogCard';
 
 function App() {
 
@@ -191,11 +190,11 @@ function App() {
         <div className="cards__wrapper">
 
           {cats.map(cat => {
-            return <CatCard key={cat.id} name={cat.name} species={cat.species} favFoods={cat.favFoods} birthYear={cat.birthYear} photo={cat.photo} alt={cat.alt} />
+            return <Card key={cat.id} name={cat.name} species={cat.species} favFoods={cat.favFoods} birthYear={cat.birthYear} photo={cat.photo} alt={cat.alt} />
           })}
 
           {dogs.map(dog => {
-            return <DogCard key={dog.id} name={dog.name} species={dog.species} favFoods={dog.favFoods} birthYear={dog.birthYear} photo={dog.photo} alt={dog.alt} />
+            return <Card key={dog.id} name={dog.name} species={dog.species} favFoods={dog.favFoods} birthYear={dog.birthYear} photo={dog.photo} alt={dog.alt} />
           })}
 
         </div>
