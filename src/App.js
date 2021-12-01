@@ -7,6 +7,7 @@ import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid';
 import dogsdata from './data/dog-data';
 
+
 function App() {
 
   const [cats, setCats] = useState([
@@ -153,9 +154,7 @@ function App() {
 
   const dogCount = dogs.length
   const catCount = cats.length
-  console.log("Our pretties: ", cats)
-  console.log("Number of cats: ", catCount)
-  console.log("Number of Dogs: ", dogCount)
+  const animals = cats.concat(dogs);
 
   return (
     <>
@@ -165,15 +164,16 @@ function App() {
       <main>
         <div className="cards__wrapper">
 
-          {cats.map(cat => {
-            return <Card key={cat.id} name={cat.name} species={cat.species} favFoods={cat.favFoods.join(", ")} birthYear={cat.birthYear} photo={cat.photo} alt={cat.alt} />
+        {animals.map(animal => {
+            return <Card key={animal.name + uuidv4} name={animal.name} species={animal.species} favFoods={animal.favFoods.join(", ")} birthYear={animal.birthYear} photo={animal.photo} alt={animal.alt} />
           })}
 
-          {dogs.map(dog => {
-            return <Card key={dog.id} name={dog.name} species={dog.species} favFoods={dog.favFoods} birthYear={dog.birthYear} photo={dog.photo} alt={dog.alt} />
-          })}
 
         </div>
+
+
+
+
       </main>
 
       <Footer />
