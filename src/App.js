@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid';
 import dogsdata from './data/dog-data';
-
+import Form from './components/Form';
 
 function App() {
 
@@ -150,8 +150,6 @@ function App() {
   ])
 
   const [dogs, setDogs] = useState(dogsdata)
-
-
   const dogCount = dogs.length
   const catCount = cats.length
   const animals = cats.concat(dogs);
@@ -168,11 +166,11 @@ function App() {
             return <Card key={animal.name + uuidv4} name={animal.name} species={animal.species} favFoods={animal.favFoods.join(", ")} birthYear={animal.birthYear} photo={animal.photo} alt={animal.alt} />
           })}
 
-
         </div>
 
-
-
+        <div>
+          <Form />
+        </div>
 
       </main>
 
