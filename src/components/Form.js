@@ -1,7 +1,7 @@
 const Form = () => {
     return (
         <div>
-            <h2>Input Form:</h2>
+            <h2>Add your own animal!</h2>
             <form>
                 <label>Name:</label>
                 <input type='text' />

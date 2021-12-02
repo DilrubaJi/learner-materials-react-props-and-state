@@ -149,15 +149,17 @@ function App() {
     }
   ])
 
-  const [dogs, setDogs] = useState(dogsdata)
-  const dogCount = dogs.length
-  const catCount = cats.length
-  const animals = cats.concat(dogs);
+  // const [dogs, setDogs] = useState(dogsdata)
+  
+  // const dogCount = dogsdata.length
+  // const catCount = cats.length
+  const animals = cats.concat(dogsdata);
+  // const [formData, setFormData] = useState()
 
   return (
     <>
       <Navbar />
-      <Header catCount={catCount} dogCount={dogCount} />
+      <Header catCount={cats.length} dogCount={dogsdata.length} />
 
       <main>
         <div className="cards__wrapper">
