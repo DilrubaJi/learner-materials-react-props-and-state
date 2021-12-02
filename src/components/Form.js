@@ -2,11 +2,12 @@ import { useState } from "react";
 
 const Form = ( {setAnimals} ) => {
 
-    const [name, setName] = useState();
-    const [species, setSpecies] = useState();
-    const [favFoods, setFavFoods] = useState();
-    const [birthYear, setBirthYear] = useState();
+    
 
+    const [name, setName] = useState("");
+    const [species, setSpecies] = useState("");
+    const [favFoods, setFavFoods] = useState("");
+    const [birthYear, setBirthYear] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,8 +19,6 @@ const Form = ( {setAnimals} ) => {
         const newCompleteAnimal = { ...newAnimal, ...newPhotoAlt };
         setAnimals(e => [...e, newCompleteAnimal]);
     }
-
-
 
     return (
         <div>
