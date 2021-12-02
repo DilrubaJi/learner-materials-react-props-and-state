@@ -200,12 +200,17 @@ function App() {
   // };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const newAnimal = { name, species, favFoods, birthYear }
+    const newPhotoAlt = {
+      "photo": "https://freesvg.org/img/WoodlandAnimals.png",
+      "alt": "default new photo"
+    };
+    const newCompleteAnimal = { ...newAnimal, ...newPhotoAlt };
 
-    console.log(JSON.stringify(newAnimal));
-    console.log(testNewData);
-    setCats(e => [...e, testNewData]);
+    // console.log(JSON.stringify(newAnimal));
+    // console.log(testNewData);
+    setCats(e => [...e, newCompleteAnimal]);
 
     // console.log("Name: ", formData);
     // alert("Name: " + formData);
