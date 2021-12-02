@@ -176,7 +176,9 @@ function App() {
   const animals = cats;
 
 
-  const [formData, setFormData] = useState("");
+  const [name, setName] = useState("");
+  const [species, setSpecies] = useState();
+  // const [allForm, setAllForm] = useState("")
 
   // const handleChangeArrayAddObject = (event) => {
   //   const name = event.target.name;
@@ -188,9 +190,12 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    console.log("Name: ", formData);
-    alert("Name: " + formData);
+    const blog = { name, species }
+
+    console.log(JSON.stringify(blog));
+
+    // console.log("Name: ", formData);
+    // alert("Name: " + formData);
   }
 
   return (
@@ -206,8 +211,15 @@ function App() {
               type="text"
               placeholder="enter a value"
               name="newKey"
-              value={formData}
-              onChange={(e) => setFormData(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="enter a value"
+              name="newKey"
+              value={species}
+              onChange={(e) => setSpecies(e.target.value)}
             />
             <input
               type="submit"
@@ -215,8 +227,8 @@ function App() {
             />
           </form>
         </div>
-        <div>{formData}</div>
-
+        <div>{name}</div>
+        <div>{species}</div>
 
 
         <div className="cards__wrapper">
