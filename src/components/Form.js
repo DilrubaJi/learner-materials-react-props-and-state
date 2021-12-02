@@ -1,17 +1,18 @@
-const Form = () => {
+const Form = (handleSubmit) => {
     return (
         <div>
             <h2>Add your own animal!</h2>
             <form>
-                <label>Name:</label>
-                <input type='text' />
+                <label>Name:
+                <input type='text' name/>
+                </label>
                 <label>Species:</label>
                 <input type='text' />
                 <label>Favourite Food(s):</label>
                 <input type='text' />
                 <label >Birth Year:</label>
                 <input type='text' />
-                <input type='submit' value='submit'/>
+                <input type='submit' value='Submit' onClick={handleSubmit}/>
             </form>
 
         </div>

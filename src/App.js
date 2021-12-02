@@ -147,14 +147,51 @@ function App() {
       "photo": "https://cdni.rt.com/files/2016.05/article/5743512dc46188d2298b45a1.jpg",
       "alt": "A cat wearing a ships captains uniform"
     }
-  ])
+  ]);
 
   // const [dogs, setDogs] = useState(dogsdata)
-  
   // const dogCount = dogsdata.length
   // const catCount = cats.length
-  const animals = cats.concat(dogsdata);
-  // const [formData, setFormData] = useState()
+
+  // const [formData, setFormData] = useState(
+  //   {
+  //     "name": "New",
+  //     "species": "New",
+  //     "favFoods": ["New"],
+  //     "birthYear": 0,
+  //     "photo": "https://cdni.rt.com/files/2016.05/article/5743512dc46188d2298b45a1.jpg",
+  //     "alt": "New animal added default photo"
+  //   }
+  // );
+
+  // console.log(formData);
+
+  // const HandleSubmit = () => {
+  //   console.log("yay clicked!")
+  //   setFormData( e => [...e, formData])
+  // }
+
+
+  // const animals = cats.concat(dogsdata);
+  const animals = cats;
+
+
+  const [formData, setFormData] = useState("");
+
+  // const handleChangeArrayAddObject = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   console.log("handleChangeAddAddObject: ", name, value);
+
+  //   setFormData((prevState) => [...prevState, { [name]: value }]);
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    console.log("Name: ", formData);
+    alert("Name: " + formData);
+  }
 
   return (
     <>
@@ -162,17 +199,35 @@ function App() {
       <Header catCount={cats.length} dogCount={dogsdata.length} />
 
       <main>
+
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="enter a value"
+              name="newKey"
+              value={formData}
+              onChange={(e) => setFormData(e.target.value)}
+            />
+            <input
+              type="submit"
+              value="Submit"
+            />
+          </form>
+        </div>
+        <div>{formData}</div>
+
+
+
         <div className="cards__wrapper">
 
-        {animals.map(animal => {
+          {animals.map(animal => {
             return <Card key={animal.name + uuidv4} name={animal.name} species={animal.species} favFoods={animal.favFoods.join(", ")} birthYear={animal.birthYear} photo={animal.photo} alt={animal.alt} />
           })}
 
         </div>
 
-        <div>
-          <Form />
-        </div>
+
 
       </main>
 
