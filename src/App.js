@@ -151,22 +151,7 @@ function App() {
 
   const animals = cats.concat(dogsdata);
 
-  const [name, setName] = useState();
-  const [species, setSpecies] = useState();
-  const [favFoods, setFavFoods] = useState();
-  const [birthYear, setBirthYear] = useState();
 
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newAnimal = { name, species, favFoods, birthYear }
-    const newPhotoAlt = {
-      "photo": "https://freesvg.org/img/WoodlandAnimals.png",
-      "alt": "default new photo"
-    };
-    const newCompleteAnimal = { ...newAnimal, ...newPhotoAlt };
-    setCats(e => [...e, newCompleteAnimal]);
-  }
 
   return (
     <>
@@ -175,38 +160,7 @@ function App() {
 
       <main>
 
-        <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="enter animal name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="enter species of animal"
-              value={species}
-              onChange={(e) => setSpecies(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="enter favourite foods"
-              value={favFoods}
-              onChange={(e) => setFavFoods([e.target.value])}
-            />
-            <input
-              type="text"
-              placeholder="enter birth year"
-              value={birthYear}
-              onChange={(e) => setBirthYear(e.target.value)}
-            />
-            <input
-              type="submit"
-              value="Submit"
-            />
-          </form>
-        </div>
+        <Form setCats={setCats} />
 
         <div className="cards__wrapper">
 

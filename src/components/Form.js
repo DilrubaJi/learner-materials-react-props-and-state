@@ -1,20 +1,58 @@
-const Form = (handleSubmit) => {
+import { useState } from "react";
+
+const Form = ( {setCats} ) => {
+
+    const [name, setName] = useState();
+    const [species, setSpecies] = useState();
+    const [favFoods, setFavFoods] = useState();
+    const [birthYear, setBirthYear] = useState();
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newAnimal = { name, species, favFoods, birthYear }
+        const newPhotoAlt = {
+            "photo": "https://freesvg.org/img/WoodlandAnimals.png",
+            "alt": "default new photo"
+        };
+        const newCompleteAnimal = { ...newAnimal, ...newPhotoAlt };
+        setCats(e => [...e, newCompleteAnimal]);
+    }
+
+
+
     return (
         <div>
-            <h2>Add your own animal!</h2>
-            <form>
-                <label>Name:
-                <input type='text' name/>
-                </label>
-                <label>Species:</label>
-                <input type='text' />
-                <label>Favourite Food(s):</label>
-                <input type='text' />
-                <label >Birth Year:</label>
-                <input type='text' />
-                <input type='submit' value='Submit' onClick={handleSubmit}/>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="enter animal name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="enter species of animal"
+                    value={species}
+                    onChange={(e) => setSpecies(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="enter favourite foods"
+                    value={favFoods}
+                    onChange={(e) => setFavFoods([e.target.value])}
+                />
+                <input
+                    type="text"
+                    placeholder="enter birth year"
+                    value={birthYear}
+                    onChange={(e) => setBirthYear(e.target.value)}
+                />
+                <input
+                    type="submit"
+                    value="Submit"
+                />
             </form>
-
         </div>
     )
 
