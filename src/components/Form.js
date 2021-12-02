@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = ( {setCats} ) => {
+const Form = ( {setAnimals} ) => {
 
     const [name, setName] = useState();
     const [species, setSpecies] = useState();
@@ -16,7 +16,7 @@ const Form = ( {setCats} ) => {
             "alt": "default new photo"
         };
         const newCompleteAnimal = { ...newAnimal, ...newPhotoAlt };
-        setCats(e => [...e, newCompleteAnimal]);
+        setAnimals(e => [...e, newCompleteAnimal]);
     }
 
 
